@@ -1,0 +1,8 @@
+{
+  "name": "Template_Driven_Form",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

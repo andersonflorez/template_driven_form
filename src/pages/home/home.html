@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Template Driven Form</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="guardarPersona(formularioPersona.value)" #formularioPersona="ngForm">
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input pattern="^[a-zA-Z áéíóúÁÉÍÓÚñÑ]*" required minlength="5" maxlength="15" type="text" name="nombre" ngModel></ion-input>
+      <!--<div item-content *ngIf="nombreRef.errors && (nombreRef.dirty || nombreRef.touched)">
+        <span [hidden]="!nombreRef.errors.required" item-content class="inline-edit">Ingrese el nombre</span> 
+        <span [hidden]="!nombreRef.errors.minlength" item-content class="inline-edit">Minimo 5 caracteres</span> 
+      </div>-->
+    </ion-item> 
+    <ion-item>
+      <ion-label floating>Correo Electronico</ion-label>
+      <ion-input pattern="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$" type="email" name="correo" required ngModel></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Edad</ion-label>
+      <ion-input pattern="^[0-9]*" type="number" name="edad" ngModel></ion-input>
+    </ion-item>
+    <button [disabled]="!formularioPersona.form.valid" ion-button type="submit" block>Guardar persona</button>
+  </form>
+</ion-content>
