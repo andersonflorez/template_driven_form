@@ -11,11 +11,12 @@
   <form (ngSubmit)="guardarPersona(formularioPersona.value)" #formularioPersona="ngForm">
     <ion-item>
       <ion-label floating>Nombre</ion-label>
-      <ion-input pattern="^[a-zA-Z áéíóúÁÉÍÓÚñÑ]*" required minlength="5" maxlength="15" type="text" name="nombre" ngModel></ion-input>
-      <!--<div item-content *ngIf="nombreRef.errors && (nombreRef.dirty || nombreRef.touched)">
+      <ion-input #nombreRef="ngModel" required pattern="^[a-zA-Z áéíóúÁÉÍÓÚñÑ]*" required minlength="5" maxlength="15" type="text" name="nombre" ngModel></ion-input>
+      <div item-content *ngIf="nombreRef.invalid && (nombreRef.dirty || nombreRef.touched)">
         <span [hidden]="!nombreRef.errors.required" item-content class="inline-edit">Ingrese el nombre</span> 
         <span [hidden]="!nombreRef.errors.minlength" item-content class="inline-edit">Minimo 5 caracteres</span> 
-      </div>-->
+        <span [hidden]="!nombreRef.errors.pattern" item-content class="inline-edit">Formato incorrecto</span> 
+      </div>
     </ion-item> 
     <ion-item>
       <ion-label floating>Correo Electronico</ion-label>
